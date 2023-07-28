@@ -2,4 +2,4 @@
 # Stops 4-to_infinity_and_beyond process.
 #	Must use kill
 
-pkill -f 4-to_infinity_and_beyond
+kill "$(ps -x | pgrep -f beyond)"
