@@ -2,4 +2,4 @@
 # Stops 7-highlander process.
 #	You cannot use kill or killall
 
-pkill -f 7-highlander
+pkill -f -SIGKILL 7-highlander
