@@ -6,8 +6,8 @@ sudo apt-get -y install nginx
 
 content="Hello World!"
 
-if ! sudo systemctl is-active --quiet nginx; then
-    sudo systemctl start nginx
+if ! sudo service nginx status > /dev/null 2>&1; then
+    sudo service nginx start
 fi
 
 echo "$content" | sudo tee /var/www/html/index.html > /dev/null
