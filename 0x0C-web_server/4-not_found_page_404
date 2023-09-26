@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Have a custom 404 page that contains the string Ceci n'est pas une page.
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+sudo mkdir -p /var/www/html/errors
+echo 'Ceci n'"'"'est pas une page' | sudo tee /var/www/html/errors/404.html > /dev/null
+
+sudo tee /etc/nginx/sites-available/custom_404 > /dev/null <<EOL
+server {
+    listen 80;
+    server_name _;
+
+    error_page 404 /errors/404.html;
+
+    location /errors {
+        alias /var/www/html/errors;
+    }
+}
+EOL
+
+# Create a symbolic link to enable the custom 404 configuration
+sudo ln -s /etc/nginx/sites-available/custom_404 /etc/nginx/sites-enabled/
