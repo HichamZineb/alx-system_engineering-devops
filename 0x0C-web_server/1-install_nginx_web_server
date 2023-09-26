@@ -10,6 +10,20 @@ if ! sudo service nginx status > /dev/null 2>&1; then
     sudo service nginx start
 fi
 
+sudo tee /etc/nginx/sites-available/default > /dev/null <<EOL
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html;
+    server_name _;
+
+    location / {
+        echo "$content";
+    }
+}
+EOL
+
 echo "$content" | sudo tee /var/www/html/index.html > /dev/null
 
 sudo service nginx restart
