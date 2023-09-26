@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Nginx server /redirect_me is redirecting to another page.
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+target_url="https://example.com/new-page"
+
+sudo tee /etc/nginx/sites-available/redirect_me > /dev/null <<EOL
+server {
+    listen 80;
+    server_name _;
+
+    location /redirect_me {
+        return 301 $target_url;
+    }
+}
+EOL
+
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
