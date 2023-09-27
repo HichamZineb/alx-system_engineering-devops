@@ -4,7 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-target_url="https://example.com/new-page"
+target_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 
 sudo tee /etc/nginx/sites-available/redirect_me > /dev/null <<EOL
 server {
