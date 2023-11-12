@@ -4,7 +4,7 @@
 <img src="postmortem.jpg" width=100% height=100% />
 </p>
 
-#Choose your Databases wisely, read on to see what happened
+# Choose your Databases wisely, read on to see what happened
 
 ## Issue Summary
 
