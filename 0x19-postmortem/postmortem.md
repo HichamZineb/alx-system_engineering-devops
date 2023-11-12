@@ -1,5 +1,9 @@
 # Postmortem: MySQL Database Outage
 
+<p align="center">
+<img src="postmortem.jpg" width=100% height=100% />
+</p>
+
 ## Issue Summary
 
 - **Duration**: November 10, 2023, 8:00 PM - November 11, 2023, 2:00 AM (UTC)
